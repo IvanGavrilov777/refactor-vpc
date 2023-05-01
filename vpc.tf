@@ -23,6 +23,7 @@ resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc_web.id
   cidr_block              = "192.168.1.0/24"
   map_public_ip_on_launch = true
+  availability_zone = "us-west-2a"
   tags = {
     Name = "public_subnet_nginx"
   }
@@ -32,7 +33,7 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.vpc_web.id
   cidr_block        = "192.168.100.0/24"
-  availability_zone = "us-west-2c"
+  availability_zone = "us-west-2a"
   tags = {
     Name = "private_subnet"
   }
